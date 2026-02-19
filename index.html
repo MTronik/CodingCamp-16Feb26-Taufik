@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ToDo List-Taufik</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header>
+    <h1>ToDo List</h1>
+    <button class="theme-toggle" onclick="toggleTheme()">🌙</button>
+  </header> 
+
+  <!-- konten utama -->
+  <main>
+    <!-- bagian <form action=""> -->
+    <section>
+        <form >
+          <div class="todo-bar">
+            <input type="text" id="todo-text" placeholder="Masukkan Daftar Kegiatan">
+            <input type="date" id="todo-date">
+            <button class="add_button" type="button" onclick="Tambah_Daftar()">+</button>
+          </div>
+          </br>
+          <div class="action-bar">
+            <button class="btn filter" type="button" onclick="Pencarian()">Filter</button>
+            <button class="btn delete" type="button" onclick="Hapus()">Delete</button>
+            <button class="btn print" type="button" onclick="PrintKegiatan()">Print</button>
+          </div>
+        </form>
+    </section>
+    <section id="todo-list">
+      <table class="todo-table">
+      <thead>
+      <tr>
+        <th>No</th>
+        <th>Kegiatan</th>
+        <th>Tanggal</th>
+        <th>Status</th>
+        <th>Aksi</th>
+      </tr>
+      </thead>
+      <tbody id="todo-body">
+      <!-- Data masuk di sini -->
+      </tbody>
+      </table>
+      <p id="no-task" class="no-task">No task found</p>
+    </section>
+  </main>
+  <footer>
+    </br></br>
+    di buat oleh Muhamad Taufik 2026</footer>
+  <script src="js/script.js"></script>
+</body>
+</html>

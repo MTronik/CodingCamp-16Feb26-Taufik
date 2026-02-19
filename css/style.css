@@ -1,0 +1,315 @@
+body{
+    justify-items: center;
+    height: 100vh;
+    align-content: center;
+    background: #f4f6f8;
+  color: #222;
+  transition: background 0.3s ease, color 0.3s ease;
+  background: linear-gradient(135deg, #e8f0ff, #f7faff);
+}
+body main {
+  border: 1.5px solid #d6e4ff;
+  background: #ffffff;
+}
+
+/* ===== DARK MODE ===== */
+body.dark {
+  background: radial-gradient(circle at top, #0f172a, #020617);
+}
+
+body.dark main {
+  background: linear-gradient(180deg, #0f172a, #020617);
+  border: 1.5px solid rgba(96,165,250,0.35);
+  box-shadow:
+    0 0 0 1px rgba(96,165,250,0.25),
+    0 0 25px rgba(59,130,246,0.25);
+}
+/* Judul */
+header {
+  padding-bottom: 10px;
+  margin-bottom: 15px;
+  border-bottom: 1px dashed #d0d0d0;
+}
+
+body.dark header {
+  border-bottom: 1px dashed rgba(148,163,184,0.3);
+}
+
+/* Tabel */
+.todo-table {
+  border: 1px solid #e0e0e0;
+}
+
+body.dark .todo-table {
+  border: 1px solid rgba(148,163,184,0.25);
+}
+/* ===== CARD UTAMA ===== */
+main {
+  width: 420px;
+  max-width: 95%;
+  padding: 20px;
+  border-radius: 16px;
+  background: #ffffff;
+  border: 1.5px solid #e0e0e0;
+  box-shadow: 0 12px 30px rgba(0,0,0,0.12);
+  transition: 
+    background 0.3s ease,
+    border 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+/* tampilan form */
+/* Input umum */
+/* Container satu baris */
+.todo-bar {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+/* Input */
+.todo-bar input {
+  height: 42px;
+  padding: 0 12px;
+  font-size: 14px;
+  border-radius: 10px;
+  border: 1px solid #bbb;
+  outline: none;
+  transition: 
+    border-color 0.25s ease,
+    box-shadow 0.25s ease,
+    transform 0.15s ease;
+}
+
+/* Lebar proporsional */
+#todo-text {
+  flex: 2;
+}
+#todo-date {
+  flex: 1.3;
+}
+
+/* Animasi fokus */
+.todo-bar input:focus {
+  border-color: #2196f3;
+  box-shadow: 0 0 0 3px rgba(33,150,243,0.25);
+  transform: translateY(-1px);
+}
+
+/* Tombol tambah */
+.add_button {
+  width: 42px;
+  height: 42px;
+  border-radius: 10px;
+  border: none;
+  background: linear-gradient(135deg, #2196f3, #1976d2);
+  color: white;
+  font-size: 22px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 
+    transform 0.15s ease,
+    box-shadow 0.15s ease,
+    background 0.2s ease;
+}
+
+/* Hover tombol */
+.add_button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 14px rgba(33,150,243,0.35);
+}
+
+/* Klik */
+.add_button:active {
+  transform: scale(0.95);
+}
+
+/* tombol filter dan delete */
+/* Container kiri-kanan */
+.action-bar {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+
+/* Style dasar tombol */
+.btn {
+  height: 42px;
+  padding: 0 18px;
+  border-radius: 10px;
+  border: none;
+  font-size: 14px;
+  font-weight: 600;
+  color: #fff;
+  cursor: pointer;
+  transition:
+    transform 0.15s ease,
+    box-shadow 0.15s ease,
+    background 0.2s ease;
+}
+
+/* Hover */
+.btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 14px rgba(0,0,0,0.25);
+}
+
+/* Klik */
+.btn:active {
+  transform: scale(0.95);
+}
+
+/* Tombol Filter (biru) */
+.btn.filter {
+  background: linear-gradient(135deg, #14a51b, #14a51b);
+}
+
+/* Tombol Delete (merah) */
+.btn.delete {
+  background: linear-gradient(135deg, #f44336, #d32f2f);
+}
+.btn.print {
+  background: linear-gradient(135deg, #6366f1, #4f46e5);
+  color: #fff;
+}
+
+/* tampilan todo list  */
+.todo-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 15px;
+  background: #ffffff;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.todo-table th {
+  background: #2196f3;
+  color: white;
+  padding: 10px;
+  font-size: 0.9em;
+}
+
+.todo-table td {
+  padding: 10px;
+  text-align: center;
+  border-bottom: 1px solid #eee;
+  font-size: 0.9em;
+}
+
+.todo-table tr:nth-child(even) {
+  background: #f9f9f9;
+}
+
+.todo-table tr:hover {
+  background: #e3f2fd;
+  transition: 0.2s;
+}
+
+/* Mobile friendly */
+@media (max-width: 600px) {
+  .todo-table th, .todo-table td {
+    font-size: 0.8em;
+    padding: 8px;
+  }
+}
+
+/* No task found */
+.no-task {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 14px;
+  color: #666;
+  opacity: 0.8;
+  display: none;
+  transition: opacity 0.3s ease;
+}
+
+/* Dark mode */
+body.dark .no-task {
+  color: #94a3b8;
+}
+
+/* Toggle Dark / Light */
+.theme-toggle {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+  font-size: 18px;
+  background: linear-gradient(135deg, #2196f3, #1976d2);
+  color: #fff;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+  transition: all 0.3s ease;
+}
+
+.theme-toggle:hover {
+  transform: rotate(20deg) scale(1.1);
+}
+
+/* ================= DARK MODE ================= */
+body.dark {
+  background: radial-gradient(circle at top, #1e293b, #020617);
+  color: #e5e7eb;
+}
+
+/* Input */
+body.dark .todo-bar input {
+  background: #0f172a;
+  color: #e5e7eb;
+  border: 1px solid #334155;
+}
+
+body.dark .todo-bar input::placeholder {
+  color: #94a3b8;
+}
+
+/* Table */
+body.dark .todo-table {
+  background: #020617;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.6);
+}
+
+body.dark .todo-table th {
+  background: linear-gradient(135deg, #3b82f6, #6366f1);
+}
+
+body.dark .todo-table td {
+  border-bottom: 1px solid #1e293b;
+}
+
+body.dark .todo-table tr:nth-child(even) {
+  background: #020617;
+}
+
+body.dark .todo-table tr:hover {
+  background: rgba(99,102,241,0.15);
+}
+
+/* Buttons */
+body.dark .btn.filter {
+  background: linear-gradient(135deg, #22c55e, #16a34a);
+}
+
+body.dark .btn.delete {
+  background: linear-gradient(135deg, #ef4444, #b91c1c);
+}
+
+body.dark .btn.print {
+  background: linear-gradient(135deg, #6366f1, #4f46e5);
+}
+
+body.dark .add_button {
+  background: linear-gradient(135deg, #6366f1, #4f46e5);
+}
+
+/* Toggle button color */
+body.dark .theme-toggle {
+  background: linear-gradient(135deg, #facc15, #eab308);
+  color: #020617;
+}
