@@ -46,24 +46,28 @@ function HapusBaris(button) {
 
 // Filter berdasarkan tanggal dan ToDo List
 function Pencarian() {
-  const filterText = document.getElementById("todo-text").value.toLowerCase().trim();
-  const filterDate = document.getElementById("todo-date").value;
+  const filterText = document.getElementById("todo-text").value
+    .toLowerCase()
+    .trim();
+
+  const filterDateRaw = document.getElementById("todo-date").value;
+  const filterDate = filterDateRaw ? filterDateRaw.split("T")[0] : "";
 
   const rows = document.querySelectorAll("#todo-body tr");
 
   rows.forEach(row => {
-    const kegiatan = row.children[1].textContent.toLowerCase();
-    const tanggal  = row.children[2].textContent;
+    const kegiatan = row.children[1].textContent.toLowerCase().trim();
+    const tanggal  = row.children[2].textContent.trim();
 
     let tampil = true;
 
-    // Filter kegiatan (jika diisi)
-    if (filterText && !kegiatan.includes(filterText)) {
+    // Filter kegiatan (opsional)
+    if (filterText !== "" && !kegiatan.includes(filterText)) {
       tampil = false;
     }
 
-    // Filter tanggal (jika diisi)
-    if (filterDate && !tanggal.startsWith(filterDate)) {
+    // Filter tanggal (opsional)
+    if (filterDate !== "" && !tanggal.includes(filterDate)) {
       tampil = false;
     }
 
@@ -144,6 +148,4 @@ function cekDataKosong() {
   });
 
   noTask.style.display = adaDataTampil ? "none" : "block";
-
 }
-
