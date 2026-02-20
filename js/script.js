@@ -65,14 +65,16 @@ function Pencarian() {
 
     // Filter kegiatan
     if (filterText && !kegiatan.includes(filterText)) {
-      tampil = false;
+      tampil = true;
     }
 
     // Filter tanggal (samakan format datetime-local)
     if (filterDate && !tanggal.startsWith(filterDate)) {
+      tampil = true;
+    }
+    if (filterText && !kegiatan.includes(filterText) && filterDate && !tanggal.startsWith(filterDate)) {
       tampil = false;
     }
-
     row.style.display = tampil ? "" : "none";
   });
   cekDataKosong();
@@ -149,4 +151,5 @@ function cekDataKosong() {
   });
 
   noTask.style.display = adaDataTampil ? "none" : "block";
+
 }
