@@ -46,16 +46,10 @@ function HapusBaris(button) {
 
 // Filter berdasarkan tanggal dan ToDo List
 function Pencarian() {
-    const text = document.getElementById("todo-text").value.trim();
-    const date = document.getElementById("todo-date").value;
-    const filterText = document.getElementById("todo-text").value.toLowerCase().trim();
-    const filterDate = document.getElementById("todo-date").value;
+  const filterText = document.getElementById("todo-text").value.toLowerCase().trim();
+  const filterDate = document.getElementById("todo-date").value;
 
-    const rows = document.querySelectorAll("#todo-body tr");
-  if (text === "" || date === "") {
-    alert("Masukkan kegiatan dan tanggal!");
-    return;
-  }
+  const rows = document.querySelectorAll("#todo-body tr");
 
   rows.forEach(row => {
     const kegiatan = row.children[1].textContent.toLowerCase();
@@ -63,20 +57,19 @@ function Pencarian() {
 
     let tampil = true;
 
-    // Filter kegiatan
+    // Filter kegiatan (jika diisi)
     if (filterText && !kegiatan.includes(filterText)) {
-      tampil = true;
-    }
-
-    // Filter tanggal (samakan format datetime-local)
-    if (filterDate && !tanggal.startsWith(filterDate)) {
-      tampil = true;
-    }
-    if (filterText && !kegiatan.includes(filterText) && filterDate && !tanggal.startsWith(filterDate)) {
       tampil = false;
     }
+
+    // Filter tanggal (jika diisi)
+    if (filterDate && !tanggal.startsWith(filterDate)) {
+      tampil = false;
+    }
+
     row.style.display = tampil ? "" : "none";
   });
+
   cekDataKosong();
 }
 
@@ -153,3 +146,4 @@ function cekDataKosong() {
   noTask.style.display = adaDataTampil ? "none" : "block";
 
 }
+
